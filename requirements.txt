@@ -1,0 +1,8 @@
+neo4j==5.14.1
+Flask==3.0.0
+graphene==2.1.9
+SQLAlchemy>=2.0.0
+graphene_sqlalchemy>=2.0.0
+Flask-GraphQL==2.0.1
+virtualenv==20.24.6
+python-dotenv>=1.0.0
