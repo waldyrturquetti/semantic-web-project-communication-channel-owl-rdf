@@ -10,7 +10,6 @@ class CommResourcesByCommChannelDto(graphene.ObjectType):
 
 def serialize_comm_resources_by_comm_channel(results):
     comm_resources_by_comm_channel = []
-    print(results)
     for result in results:
         display_comm_resources = ""
         for item in reversed(result['A']):

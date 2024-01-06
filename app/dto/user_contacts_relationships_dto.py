@@ -12,7 +12,6 @@ class UserContactsRelationshipDto(graphene.ObjectType):
 
 def serialize_user_contacts_relationship(results):
     user_contacts_dto_array = []
-    print(results)
     for result in results:
         obj = {
             'relation_source': result['r'][0]['name'],

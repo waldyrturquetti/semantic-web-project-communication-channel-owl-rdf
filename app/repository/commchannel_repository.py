@@ -12,6 +12,7 @@ sparql = SPARQLWrapper(
 
 
 class CommChannelRepository:
+
     def __init__(self):
         pass
 
@@ -53,5 +54,4 @@ class CommChannelRepository:
             ORDER BY DESC (?preference_weight)
         """)
         query = query.substitute(name=user_name)
-        print(self.execute_query(query))
-        return None
+        return self.execute_query(query)

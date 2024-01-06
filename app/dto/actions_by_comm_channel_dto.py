@@ -10,7 +10,6 @@ class ActionsByCommChannelDto(graphene.ObjectType):
 
 def serialize_action_by_comm_channel(results):
     action_by_comm_channel_dto_array = []
-    print(results)
     for result in results:
         obj = {
             'type': result['a']['type'],
