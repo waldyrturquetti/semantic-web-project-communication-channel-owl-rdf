@@ -513,6 +513,7 @@
         <CCOntology:Communication_Category>Image</CCOntology:Communication_Category>
         <CCOntology:Communication_Category>Text</CCOntology:Communication_Category>
         <CCOntology:Communication_Category>Video</CCOntology:Communication_Category>
+        <CCOntology:Type>DirectMessage</CCOntology:Type>
     </owl:NamedIndividual>
     
 
@@ -526,6 +527,7 @@
         <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_email"/>
         <CCOntology:Communication_Category>Image</CCOntology:Communication_Category>
         <CCOntology:Communication_Category>Text</CCOntology:Communication_Category>
+        <CCOntology:Type>Email</CCOntology:Type>
     </owl:NamedIndividual>
     
 
@@ -592,6 +594,7 @@
         <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_phone"/>
         <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_phone"/>
         <CCOntology:Communication_Category>Audio</CCOntology:Communication_Category>
+        <CCOntology:Type>PhoneCall</CCOntology:Type>
     </owl:NamedIndividual>
     
 
@@ -604,6 +607,7 @@
         <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#liveconcert1_instagram"/>
         <CCOntology:Communication_Category>Image</CCOntology:Communication_Category>
         <CCOntology:Communication_Category>Text</CCOntology:Communication_Category>
+        <CCOntology:Type>Publication</CCOntology:Type>
     </owl:NamedIndividual>
     
 
@@ -618,6 +622,7 @@
         <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_whatsapp"/>
         <CCOntology:Communication_Category>Image</CCOntology:Communication_Category>
         <CCOntology:Communication_Category>Text</CCOntology:Communication_Category>
+        <CCOntology:Type>PushNotification</CCOntology:Type>
     </owl:NamedIndividual>
     
 
@@ -630,6 +635,7 @@
         <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_phone"/>
         <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_phone"/>
         <CCOntology:Communication_Category>Text</CCOntology:Communication_Category>
+        <CCOntology:Type>SMS</CCOntology:Type>
     </owl:NamedIndividual>
     
 
@@ -656,7 +662,7 @@
         <CCOntology:IS_OWNED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Della"/>
         <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Email"/>
         <CCOntology:Preference_Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.5</CCOntology:Preference_Weight>
-        <CCOntology:Type>Email</CCOntology:Type>
+        <CCOntology:Type>EmailAddress</CCOntology:Type>
         <Value>della1@gmail.com</Value>
     </owl:NamedIndividual>
     
@@ -698,7 +704,7 @@
         <CCOntology:IS_OWNED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Julio"/>
         <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Email"/>
         <CCOntology:Preference_Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.8</CCOntology:Preference_Weight>
-        <CCOntology:Type>Email</CCOntology:Type>
+        <CCOntology:Type>EmailAddress</CCOntology:Type>
         <Value>julio1@gmail.com</Value>
     </owl:NamedIndividual>
     
@@ -811,7 +817,7 @@
         <CCOntology:IS_OWNED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Waldyr"/>
         <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Email"/>
         <CCOntology:Preference_Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.9</CCOntology:Preference_Weight>
-        <CCOntology:Type>Email</CCOntology:Type>
+        <CCOntology:Type>EmailAddress</CCOntology:Type>
         <Value>waldyr1@gmail.com</Value>
     </owl:NamedIndividual>
     
