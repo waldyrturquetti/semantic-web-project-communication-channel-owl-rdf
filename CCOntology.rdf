@@ -1,0 +1,884 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/1513mxti/ontologies/2024/0/CCOntology#"
+     xml:base="http://www.semanticweb.org/1513mxti/ontologies/2024/0/CCOntology"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:CCOntology="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2024/0/CCOntology">
+        <rdfs:comment>This is an ontology about user/contact and events that realise actions that take into communication channels.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#HAD_THE_PRESENCE_OF -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#HAD_THE_PRESENCE_OF">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#WAS_IN"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Event"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#HAVE -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#HAVE">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_OWNED_BY"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <rdfs:label xml:lang="en">HAVE</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_FATHER_OF -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_FATHER_OF">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_SON_OF"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_NEPHEW_OF -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_NEPHEW_OF">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_UNCLE_OF"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_OWNED_BY -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_OWNED_BY">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_PERFORMED_BY -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_PERFORMED_BY">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#PERFORM_ACTION"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Actions"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_SON_OF -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_SON_OF">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_UNCLE_OF -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_UNCLE_OF">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_USED_BY -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#IS_USED_BY">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#USE"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Channel"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#PERFORM_ACTION -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#PERFORM_ACTION">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Actions"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#THROUGH_A -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#THROUGH_A">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Actions"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Channel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#USE -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#USE">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Channel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#USING -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#USING">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Actions"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#WAS_IN -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#WAS_IN">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Event"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#topObjectProperty -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2002/07/owl#topObjectProperty">
+        <owl:inverseOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Action_Category -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Action_Category">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Actions"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Application -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Application">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Birthday_Day -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Birthday_Day">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Born_Country -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Born_Country">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Category -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Category">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Context -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Context">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Date_and_Time -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Date_and_Time">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Actions"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Description -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Description">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Email_Address -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Email_Address">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#End_Date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#End_Date">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Gender -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Gender">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Height -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Height">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Name -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Name">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#Name"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Phone_Number -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Phone_Number">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Place -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Place">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Preference_Weight -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Preference_Weight">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Profession -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Profession">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Religion -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Religion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Start_Date -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Start_Date">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Title -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Title">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Type -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Type">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Actions"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2024/0/CCOntology#Value -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2024/0/CCOntology#Value">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Actions -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Actions"/>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Channel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Channel"/>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Event -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Event"/>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Della -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Della">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <CCOntology:HAVE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_email"/>
+        <CCOntology:HAVE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_instagram"/>
+        <CCOntology:HAVE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_phone"/>
+        <CCOntology:Name>Della</CCOntology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#DirectMessage -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#DirectMessage">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Channel"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_instagram"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_whatsapp"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#liveconcert1_instagram"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_whatsapp"/>
+        <CCOntology:Communication_Category>Audio</CCOntology:Communication_Category>
+        <CCOntology:Communication_Category>Image</CCOntology:Communication_Category>
+        <CCOntology:Communication_Category>Text</CCOntology:Communication_Category>
+        <CCOntology:Communication_Category>Video</CCOntology:Communication_Category>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Email -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Email">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Channel"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_email"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_email"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_email"/>
+        <CCOntology:Communication_Category>Image</CCOntology:Communication_Category>
+        <CCOntology:Communication_Category>Text</CCOntology:Communication_Category>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#João -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#João">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <CCOntology:IS_FATHER_OF rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Julio"/>
+        <CCOntology:Name>João</CCOntology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Julio -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Julio">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <CCOntology:HAVE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_email"/>
+        <CCOntology:HAVE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_phone"/>
+        <CCOntology:HAVE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_whatsapp"/>
+        <CCOntology:IS_SON_OF rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#João"/>
+        <CCOntology:PERFORM_ACTION rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio_ReceiveAccessToken"/>
+        <CCOntology:PERFORM_ACTION rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio_SendEmail"/>
+        <CCOntology:PERFORM_ACTION rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio_SendImage"/>
+        <CCOntology:PERFORM_ACTION rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2024/0/CCOntology#julio_MakePhoneCall"/>
+        <CCOntology:WAS_IN rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#LiveConcert"/>
+        <CCOntology:Name>Julio</CCOntology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Jú -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Jú">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <CCOntology:IS_UNCLE_OF rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Waldyr"/>
+        <CCOntology:Name>Jú</CCOntology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#LiveConcert -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#LiveConcert">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Event"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <CCOntology:HAD_THE_PRESENCE_OF rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Julio"/>
+        <CCOntology:HAD_THE_PRESENCE_OF rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Waldyr"/>
+        <CCOntology:HAVE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#liveconcert1_instagram"/>
+        <CCOntology:PERFORM_ACTION rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#liveconcert_Publication"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#PhoneCall -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#PhoneCall">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Channel"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_phone"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_phone"/>
+        <CCOntology:Communication_Category>Audio</CCOntology:Communication_Category>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Publication -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Publication">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Channel"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_instagram"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#liveconcert1_instagram"/>
+        <CCOntology:Communication_Category>Image</CCOntology:Communication_Category>
+        <CCOntology:Communication_Category>Text</CCOntology:Communication_Category>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#PushNotification -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#PushNotification">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Channel"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_instagram"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_whatsapp"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#liveconcert1_instagram"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_whatsapp"/>
+        <CCOntology:Communication_Category>Image</CCOntology:Communication_Category>
+        <CCOntology:Communication_Category>Text</CCOntology:Communication_Category>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#SMS -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#SMS">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Channel"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_phone"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_phone"/>
+        <CCOntology:IS_USED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_phone"/>
+        <CCOntology:Communication_Category>Text</CCOntology:Communication_Category>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Waldyr -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Waldyr">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Contact"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#User"/>
+        <CCOntology:HAVE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_email"/>
+        <CCOntology:HAVE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_phone"/>
+        <CCOntology:HAVE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_whatsapp"/>
+        <CCOntology:IS_NEPHEW_OF rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Jú"/>
+        <CCOntology:WAS_IN rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#LiveConcert"/>
+        <CCOntology:Name>Waldyr</CCOntology:Name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_email -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_email">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <CCOntology:IS_OWNED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Della"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Email"/>
+        <CCOntology:Preference_Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.5</CCOntology:Preference_Weight>
+        <CCOntology:Type>Email</CCOntology:Type>
+        <Value>della1@gmail.com</Value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_instagram -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_instagram">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <CCOntology:IS_OWNED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Della"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#DirectMessage"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Publication"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#PushNotification"/>
+        <CCOntology:Preference_Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.8</CCOntology:Preference_Weight>
+        <CCOntology:Type>Application</CCOntology:Type>
+        <Value>Instagram</Value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_phone -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#della1_phone">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <CCOntology:IS_OWNED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Della"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#PhoneCall"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#SMS"/>
+        <CCOntology:Preference_Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.2</CCOntology:Preference_Weight>
+        <CCOntology:Type>PhoneNumber</CCOntology:Type>
+        <Value>+5512912341235</Value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_email -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_email">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <CCOntology:IS_OWNED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Julio"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Email"/>
+        <CCOntology:Preference_Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.8</CCOntology:Preference_Weight>
+        <CCOntology:Type>Email</CCOntology:Type>
+        <Value>julio1@gmail.com</Value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_phone -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_phone">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <CCOntology:IS_OWNED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Julio"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#PhoneCall"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#SMS"/>
+        <CCOntology:Preference_Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.5</CCOntology:Preference_Weight>
+        <CCOntology:Type>PhoneNumber</CCOntology:Type>
+        <Value>+5512912341236</Value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_whatsapp -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_whatsapp">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <CCOntology:IS_OWNED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Julio"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#DirectMessage"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#PushNotification"/>
+        <CCOntology:Preference_Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.2</CCOntology:Preference_Weight>
+        <CCOntology:Type>Application</CCOntology:Type>
+        <Value>WhatsApp</Value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio_ReceiveAccessToken -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio_ReceiveAccessToken">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Actions"/>
+        <CCOntology:IS_PERFORMED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Julio"/>
+        <CCOntology:THROUGH_A rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#SMS"/>
+        <CCOntology:USING rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_phone"/>
+        <CCOntology:Action_Category>Text</CCOntology:Action_Category>
+        <CCOntology:Date_and_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2000-01-01T22:00:00Z</CCOntology:Date_and_Time>
+        <CCOntology:Description>Receive a Access Token throgh a SMS message.</CCOntology:Description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio_SendEmail -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio_SendEmail">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Actions"/>
+        <CCOntology:IS_PERFORMED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Julio"/>
+        <CCOntology:THROUGH_A rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Email"/>
+        <CCOntology:USING rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_email"/>
+        <CCOntology:Action_Category>Image</CCOntology:Action_Category>
+        <CCOntology:Action_Category>Text</CCOntology:Action_Category>
+        <CCOntology:Date_and_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2000-01-01T08:00:00Z</CCOntology:Date_and_Time>
+        <CCOntology:Description>Send a Email using julio1@gmail.com.</CCOntology:Description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio_SendImage -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio_SendImage">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Actions"/>
+        <CCOntology:IS_PERFORMED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Julio"/>
+        <CCOntology:THROUGH_A rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#DirectMessage"/>
+        <CCOntology:USING rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_whatsapp"/>
+        <CCOntology:Action_Category>Image</CCOntology:Action_Category>
+        <CCOntology:Date_and_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2000-01-01T15:00:00Z</CCOntology:Date_and_Time>
+        <CCOntology:Description>Send a image using a direct message and the whatsapp application.</CCOntology:Description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#liveconcert1_instagram -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#liveconcert1_instagram">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <CCOntology:IS_OWNED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#LiveConcert"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#DirectMessage"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Publication"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#PushNotification"/>
+        <CCOntology:Preference_Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</CCOntology:Preference_Weight>
+        <CCOntology:Type>Application</CCOntology:Type>
+        <Value>Instagram</Value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#liveconcert_Publication -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#liveconcert_Publication">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Actions"/>
+        <CCOntology:IS_PERFORMED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#LiveConcert"/>
+        <CCOntology:THROUGH_A rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Publication"/>
+        <CCOntology:USING rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#liveconcert1_instagram"/>
+        <CCOntology:Action_Category>Image</CCOntology:Action_Category>
+        <CCOntology:Application>Instagram</CCOntology:Application>
+        <CCOntology:Date_and_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2000-01-01T22:00:00Z</CCOntology:Date_and_Time>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_email -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_email">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <CCOntology:IS_OWNED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Waldyr"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Email"/>
+        <CCOntology:Preference_Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.9</CCOntology:Preference_Weight>
+        <CCOntology:Type>Email</CCOntology:Type>
+        <Value>waldyr1@gmail.com</Value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_phone -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_phone">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <CCOntology:IS_OWNED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Waldyr"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#SMS"/>
+        <CCOntology:Preference_Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.4</CCOntology:Preference_Weight>
+        <CCOntology:Type>PhoneNumber</CCOntology:Type>
+        <Value>+5512912341237</Value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_whatsapp -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#waldyr1_whatsapp">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Communication_Resource"/>
+        <CCOntology:IS_OWNED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Waldyr"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#DirectMessage"/>
+        <CCOntology:USE rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#PushNotification"/>
+        <CCOntology:Preference_Weight rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.6</CCOntology:Preference_Weight>
+        <CCOntology:Type>Application</CCOntology:Type>
+        <Value>WhatsApp</Value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/1513mxti/ontologies/2024/0/CCOntology#julio_MakePhoneCall -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2024/0/CCOntology#julio_MakePhoneCall">
+        <rdf:type rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Actions"/>
+        <CCOntology:IS_PERFORMED_BY rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Julio"/>
+        <CCOntology:THROUGH_A rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#PhoneCall"/>
+        <CCOntology:USING rdf:resource="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#julio1_phone"/>
+        <CCOntology:Action_Category>Audio</CCOntology:Action_Category>
+        <CCOntology:Date_and_Time rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2000-01-01T22:00:00Z</CCOntology:Date_and_Time>
+        <CCOntology:Description>Start a call throgh the +5512912341236 celphone.</CCOntology:Description>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Della"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#João"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Julio"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Jú"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#Waldyr"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+

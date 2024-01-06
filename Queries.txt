@@ -1,0 +1,123 @@
+BEST COMMUNICATION CHANNEL BY USER
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX cco: <http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#>
+
+SELECT ?user ?communication_resource ?communication_channel ?preference_weight
+WHERE {
+	?user rdf:type cco:User; 
+		cco:Name ?user_name .
+	?communication_resource rdf:type cco:Communication_Resource;
+		cco:Preference_Weight ?preference_weight .
+	?user cco:HAVE ?communication_resource .
+	{
+    	SELECT (MAX(?preference_weight) AS ?max_preference)
+		WHERE {
+			?user rdf:type cco:User; 
+			cco:Name "Waldyr"^^xsd:string ;
+		       	cco:HAVE ?communication_resource .
+			?communication_resource rdf:type cco:Communication_Resource;
+		                         cco:Preference_Weight ?preference_weight .
+		}
+	}
+	?communication_resource cco:USE ?communication_channel .	
+	FILTER (?user_name = "Waldyr"^^xsd:string && ?preference_weight = ?max_preference)
+}
+ORDER BY DESC (?preference_weight)
+
+--------------------------------------------------------------------------
+
+ALL COMMUNICATION CHANNEL PREFERENCE WEIGHT BY USER
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX cco: <http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#>
+
+SELECT ?user ?communication_resource ?communication_channel ?preference_weight
+WHERE {
+	?user rdf:type cco:User; 
+		cco:Name ?user_name .
+	?communication_resource rdf:type cco:Communication_Resource;
+		cco:Preference_Weight ?preference_weight .
+	?user cco:HAVE ?communication_resource .
+	{
+    	SELECT (MAX(?preference_weight) AS ?max_preference)
+		WHERE {
+			?user rdf:type cco:User; 
+			cco:Name "Waldyr"^^xsd:string ;
+		       	cco:HAVE ?communication_resource .
+			?communication_resource rdf:type cco:Communication_Resource;
+		                         cco:Preference_Weight ?preference_weight .
+		}
+	}
+	?communication_resource cco:USE ?communication_channel .	
+	FILTER (?user_name = "Waldyr"^^xsd:string && ?preference_weight = ?max_preference)
+}
+ORDER BY DESC (?preference_weight)
+
+--------------------------------------------------------------------------
+
+THE COUNT OF ACTION DONE FOR EACH TIME OF DAY BY USER
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX cco: <http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#>
+
+SELECT ?user ?timeOfDay (COUNT(?action) as ?actionCount)
+WHERE {
+   ?user rdf:type cco:User .
+   ?action rdf:type cco:Actions .
+  
+   ?user cco:Name ?name .
+   ?user cco:PERFORM_ACTION ?action .
+   ?action cco:Date_and_Time ?actionDateTime .
+   
+   # Extracting the hour component
+   BIND(HOURS(?actionDateTime) as ?hour) .
+
+   # Categorizing actions based on time of day
+   BIND(
+      IF(?hour >= 6 && ?hour < 12, "Morning",
+         IF(?hour >= 12 && ?hour < 18, "Afternoon",
+            IF(?hour >= 18 && ?hour < 24, "Evening",
+               IF(?hour >= 0 && ?hour < 6, "Night", "Undefined")
+            )
+         )
+      ) as ?timeOfDay
+   )
+   FILTER (regex(?name, "Julio", "i"))
+}
+GROUP BY ?user ?timeOfDay
+
+--------------------------------------------------------------------------
+
+BY EACH ACTION CATEGORY GET THE COUNT BY USER
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX cco: <http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#>
+
+SELECT ?user ?actionCategory (COUNT(?actionCategory) as ?actionCategoryCount)
+WHERE {
+   ?user rdf:type cco:User .
+   ?action rdf:type cco:Actions .
+  
+   ?user cco:Name ?name .
+   ?user cco:PERFORM_ACTION ?action .
+   ?action cco:Action_Category ?actionCategory .
+   
+   FILTER (regex(?name, "Julio", "i"))
+}
+GROUP BY ?user ?actionCategory
+
+--------------------------------------------------------------------------
+
