@@ -45,7 +45,7 @@ class CommChannelRepository:
                     SELECT (MAX(?preference_weight) AS ?max_preference) 
                     WHERE {
                         ?user rdf:type cco:User; 
-                            cco:Name "Waldyr"^^xsd:string ; 
+                            cco:Name "$name"^^xsd:string ; 
                             cco:HAVE ?communication_resource . 
                         ?communication_resource rdf:type cco:Communication_Resource;
                             cco:Preference_Weight ?preference_weight .
@@ -53,7 +53,7 @@ class CommChannelRepository:
                 } 
                 ?communication_resource cco:USE ?communication_channel .
                 ?communication_channel cco:Type ?communication_channel_type
-                FILTER (?user_name = "Waldyr"^^xsd:string && ?preference_weight = ?max_preference)
+                FILTER (?user_name = "$name"^^xsd:string && ?preference_weight = ?max_preference)
             } 
             ORDER BY DESC (?preference_weight)
         """)
