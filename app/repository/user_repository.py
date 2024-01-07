@@ -129,3 +129,61 @@ class UserRepository:
         """)
         query = query.substitute(name=user_name)
         return self.execute_query(query)
+
+    def get_all_comm_resources_and_categories_by_user(self, user_name):
+        query = Template("""
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX cco: <http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#>
+            PREFIX cco2: <http://www.semanticweb.org/1513mxti/ontologies/2024/0/CCOntology#>
+            
+            SELECT ?name ?communication_resource_type ?communication_channel_category_type
+            WHERE {
+              ?user rdf:type cco:User .
+              ?communication_resource rdf:type cco:Communication_Resource .
+              ?communication_channel rdf:type cco:Communication_Channel .
+            
+              ?user cco:Name ?name .
+              ?user cco:HAVE ?communication_resource .
+              ?communication_resource cco:USE ?communication_channel .
+            
+              ?communication_resource cco2:Value ?communication_resource_type .
+              ?communication_channel cco:Communication_Category ?communication_channel_category_type .
+            
+              FILTER (?name = "$name"^^xsd:string )
+            }
+            GROUP BY ?name ?communication_resource_type ?communication_channel_category_type
+        """)
+        query = query.substitute(name=user_name)
+        return self.execute_query(query)
+
+    def get_comm_resources_by_user_and_category(self, user_name, comm_category):
+        query = Template("""
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX cco: <http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#>
+            PREFIX cco2: <http://www.semanticweb.org/1513mxti/ontologies/2024/0/CCOntology#>
+            
+            SELECT ?name ?communication_resource_type ?communication_channel_category_type
+            WHERE {
+              ?user rdf:type cco:User .
+              ?communication_resource rdf:type cco:Communication_Resource .
+              ?communication_channel rdf:type cco:Communication_Channel .
+            
+              ?user cco:Name ?name .
+              ?user cco:HAVE ?communication_resource .
+              ?communication_resource cco:USE ?communication_channel .
+            
+              ?communication_resource cco2:Value ?communication_resource_type .
+              ?communication_channel cco:Communication_Category ?communication_channel_category_type .
+            
+              FILTER (?name = "$name"^^xsd:string && ?communication_channel_category_type = "$category"^^xsd:string)
+            }
+            GROUP BY ?name ?communication_resource_type ?communication_channel_category_type
+        """)
+        query = query.substitute(name=user_name, category=comm_category)
+        return self.execute_query(query)
