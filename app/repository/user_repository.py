@@ -81,3 +81,51 @@ class UserRepository:
         """)
         query = query.substitute(name=user_name)
         return self.execute_query(query)
+
+    def get_greater_action_count_per_category_by_user(self, user_name):
+        query = Template("""
+            PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX cco: <http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#>
+            
+            SELECT ?name ?actionCategory ?actionCategoryCount
+            WHERE {
+              {
+                SELECT ?name ?actionCategory (COUNT(?actionCategory) as ?actionCategoryCount)
+                WHERE {
+                  ?user rdf:type cco:User .
+                  ?action rdf:type cco:Actions .
+                  ?user cco:Name ?name .
+                  ?user cco:PERFORM_ACTION ?action .
+                  ?action cco:Action_Category ?actionCategory .
+                  FILTER (regex(?name, "$name", "i"))
+                }
+                GROUP BY ?name ?actionCategory
+              }
+            
+              {
+                SELECT ?name (MAX(?actionCategoryCount) as ?maxCount)
+                WHERE {
+                  {
+                    SELECT ?name ?actionCategory (COUNT(?actionCategory) as ?actionCategoryCount)
+                    WHERE {
+                      ?user rdf:type cco:User .
+                      ?action rdf:type cco:Actions .
+                      ?user cco:Name ?name .
+                      ?user cco:PERFORM_ACTION ?action .
+                      ?action cco:Action_Category ?actionCategory .
+                      FILTER (regex(?name, "$name", "i"))
+                    }
+                    GROUP BY ?name ?actionCategory
+                  }
+                }
+                GROUP BY ?name
+              }
+            
+              FILTER (?actionCategoryCount = ?maxCount)
+            }
+        """)
+        query = query.substitute(name=user_name)
+        return self.execute_query(query)
