@@ -1,0 +1,193 @@
+# COMMUNICATION CHANNEL PREFERENCE RANK / BY USER
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX cco: <http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#>
+PREFIX cco2: <http://www.semanticweb.org/1513mxti/ontologies/2024/0/CCOntology#>
+
+SELECT
+  ?name
+  ?communication_channel_type
+  ((COUNT(?action)) / ?totalActions as ?communication_channel_preference)
+WHERE {
+  {
+    SELECT ?name (COUNT(?action) as ?totalActions)
+    WHERE {
+      ?user rdf:type cco:User .
+      ?user cco:Name ?name .
+      ?action rdf:type cco:Actions .
+      ?user cco:PERFORM_ACTION ?action .
+      ?action cco:THROUGH_A ?communication_channel .
+      FILTER(?name = "Julio")
+    }
+    GROUP BY ?name
+  }
+  ?user rdf:type cco:User .
+  ?user cco:Name ?name .
+  ?action rdf:type cco:Actions .
+  ?communication_channel rdf:type cco:Communication_Channel .
+  ?user cco:PERFORM_ACTION ?action .
+  ?action cco:THROUGH_A ?communication_channel .
+  ?communication_channel cco:Type ?communication_channel_type .
+  
+}
+GROUP BY ?name ?communication_channel ?communication_channel_type ?totalActions
+ORDER BY DESC (?communication_channel_preference)
+
+--------------------------------------------------------
+# COMMUNICATION RESOURCE PREFERENCE RANK / BY USER
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX cco: <http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#>
+PREFIX cco2: <http://www.semanticweb.org/1513mxti/ontologies/2024/0/CCOntology#>
+
+SELECT
+  ?name
+  ?communication_resource_type
+  ?communication_resource_value
+  ((COUNT(?action)) / ?totalActions as ?communication_resource_preference)
+WHERE {
+  {
+    SELECT ?name (COUNT(?action) as ?totalActions)
+    WHERE {
+      ?user rdf:type cco:User .
+      ?user cco:Name ?name .
+      ?action rdf:type cco:Actions .
+      ?user cco:PERFORM_ACTION ?action .
+      ?action cco:USING ?communication_resource .
+      FILTER(?name = "Julio")
+    }
+    GROUP BY ?name
+  }
+  ?user rdf:type cco:User .
+  ?user cco:Name ?name .
+  ?action rdf:type cco:Actions .
+  ?communication_resource rdf:type cco:Communication_Resource .
+  ?user cco:PERFORM_ACTION ?action .
+  ?action cco:USING ?communication_resource .
+  ?communication_resource cco:Type ?communication_resource_type .
+  ?communication_resource cco2:Value ?communication_resource_value .
+  
+}
+GROUP BY ?name ?communication_resource ?communication_resource_type ?communication_resource_value ?totalActions
+ORDER BY DESC (?communication_resource_preference)
+
+--------------------------------------------------------
+
+# MESSAGE TYPE CATEGORY PREFERENCE RANK / BY USER
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX cco: <http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#>
+
+SELECT ?name ?messageType ((COUNT(?messageType)) / ?totalMessageType as ?messageType_preference)
+WHERE {
+  {
+    SELECT ?name (COUNT(?messageType) as ?totalMessageType)
+    WHERE {
+     	?user rdf:type cco:User .
+        ?action rdf:type cco:Actions .
+        ?user cco:Name ?name .
+        ?user cco:PERFORM_ACTION ?action .
+        ?action cco:Action_Category ?messageType .
+     	FILTER(?name = "Julio")
+    }
+    GROUP BY ?name
+  }
+  ?user rdf:type cco:User .
+  ?action rdf:type cco:Actions .
+  ?user cco:Name ?name .
+  ?user cco:PERFORM_ACTION ?action .
+  ?action cco:Action_Category ?messageType .
+  FILTER (regex(?name, "Julio", "i"))
+}
+GROUP BY ?name ?messageType ?totalMessageType
+ORDER BY DESC(?messageType_preference)
+
+--------------------------------------------------------
+# PERIOD OF DAY PREFERENCE RANK / BY USER
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX cco: <http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#>
+SELECT ?name ?timeOfDay ((COUNT(?action)) / ?actionCount as ?period_of_day_preference)
+WHERE {
+  	{
+        SELECT ?name (COUNT(?action) as ?actionCount)
+        WHERE {
+            ?user rdf:type cco:User .
+            ?action rdf:type cco:Actions .
+            ?user cco:Name ?name .
+            ?user cco:PERFORM_ACTION ?action .
+            ?action cco:Date_and_Time ?actionDateTime .
+            # Extracting the hour component
+            BIND(HOURS(?actionDateTime) as ?hour) .
+            # Categorizing actions based on time of day
+            BIND(
+                IF(?hour >= 6 && ?hour < 12, "Morning",
+                IF(?hour >= 12 && ?hour < 18, "Afternoon",
+                IF(?hour >= 18 && ?hour < 24, "Evening",
+                IF(?hour >= 0 && ?hour < 6, "Night", "Undefined")))
+            ) as ?timeOfDay )
+            FILTER (regex(?name, "Julio", "i"))
+        }
+        GROUP BY ?name
+    }
+	?user rdf:type cco:User .
+    ?action rdf:type cco:Actions .
+    ?user cco:Name ?name .
+    ?user cco:PERFORM_ACTION ?action .
+    ?action cco:Date_and_Time ?actionDateTime .
+    # Extracting the hour component
+    BIND(HOURS(?actionDateTime) as ?hour) .
+    # Categorizing actions based on time of day
+    BIND(
+        IF(?hour >= 6 && ?hour < 12, "Morning",
+        IF(?hour >= 12 && ?hour < 18, "Afternoon",
+        IF(?hour >= 18 && ?hour < 24, "Evening",
+        IF(?hour >= 0 && ?hour < 6, "Night", "Undefined")))
+    ) as ?timeOfDay )
+    FILTER (regex(?name, "Julio", "i"))
+}
+GROUP BY ?name ?timeOfDay ?actionCount
+ORDER BY DESC(?period_of_day_preference)
+
+--------------------------------------------------------
+# FOR EVENT ATTENDER THE PREFERRED COMMUNICATION CHANNEL / BY EVENT
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX cco: <http://www.semanticweb.org/1513mxti/ontologies/2023/11/CCOntology#>
+PREFIX cco2: <http://www.semanticweb.org/1513mxti/ontologies/2024/0/CCOntology#>
+
+SELECT ?eventTitle ((?name) as ?eventAttender) ((?communication_channel_type) as ?preferred_communication_channel)
+WHERE {
+  ?user rdf:type cco:User .
+  ?action rdf:type cco:Actions .
+  ?event rdf:type cco:Event .
+  ?communication_channel rdf:type cco:Communication_Channel .
+
+  ?user cco:Name ?name .
+  ?event cco:Title ?eventTitle .
+  ?event cco2:IS_ATTENDED_BY ?user .
+  FILTER (regex(?eventTitle, "Christmas", "i"))
+
+  {
+    SELECT ?communication_channel_type (COUNT(?action) as ?actionCount)
+    WHERE {
+      ?user cco:Name ?name .
+      ?user cco:PERFORM_ACTION ?action .
+      ?action cco:THROUGH_A ?communication_channel .
+      ?communication_channel cco:Type ?communication_channel_type .
+    }
+    GROUP BY ?communication_channel_type
+    ORDER BY DESC(?actionCount)
+    LIMIT 1
+  }
+}
+GROUP BY ?eventTitle ?name ?communication_channel_type
